@@ -31,6 +31,7 @@ import (
 	"github.com/google/shlex"
 	"github.com/manifoldco/promptui"
 	"github.com/mitchellh/go-homedir"
+	"github.com/theykk/git-switcher/internal/fixes"
 )
 
 func main() {
@@ -132,6 +133,7 @@ func main() {
 				// Change cursor to current config
 				CursorPos:    currentConfigPos,
 				HideSelected: true,
+				Stdout:       &fixes.BellSkipper{},
 			}
 
 			_, result, err := prompt.Run()
@@ -275,6 +277,7 @@ func main() {
 		// Change cursor to current config
 		CursorPos:    currentConfigPos,
 		HideSelected: true,
+		Stdout:       &fixes.BellSkipper{},
 	}
 
 	_, result, err := prompt.Run()
