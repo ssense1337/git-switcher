@@ -88,6 +88,14 @@ func main() {
 	if len(os.Args) > 1 {
 		action := os.Args[1]
 		switch action {
+		case "help":
+			fmt.Println("Usage: git-switcher [action] [profile]")
+			fmt.Println("Actions:")
+			fmt.Println("\tcreate\tCreate new profile")
+			fmt.Println("\tdelete\tDelete profile")
+			fmt.Println("\trename\tRename profile")
+			fmt.Println("\tedit\tEdit profile")
+			fmt.Println("\tswitch\tSwitch profile")
 		case "create":
 			prom := promptui.Prompt{
 				Label: "Profile name",
